@@ -1,23 +1,54 @@
-import logo from './logo.svg';
+
+import { BrowserRouter,Switch,Route } from 'react-router-dom';
 import './App.css';
+import Addproducts from './Components/Addproducts/Addproducts';
+import Home from './Components/CarHome/Home/Home';
+import Dashboard from './Components/Dashboard/Dashboard';
+import Explore from './Components/Explore/Explore';
+import Purchase from './Components/Explore/Purchase/Purchase';
+import AuthProvider from './Components/Login/Context/AuthProvider';
+import PrivateRoute from './Components/Login/hooks/PrivateRoute/PrivateRoute';
+import Login from './Components/Login/Login';
+import Register from './Components/Login/Register';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthProvider>
+      <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+         <Home></Home>
+        </Route>
+        <Route exact path="/home">
+         <Home></Home>
+        </Route>
+      <Route path="/login">
+            <Login></Login>
+      </Route>
+      <Route path="/register">
+    <Register></Register>
+      </Route>
+      <Route path="/explore">
+           <Explore></Explore>
+      </Route>
+
+      <Route path="/addproducts">
+          <Addproducts></Addproducts>
+      </Route>
+
+      <Route path="/dashboard">
+          <Dashboard></Dashboard>
+      </Route>
+
+      <PrivateRoute path="/purchase/:perid">
+          <Purchase></Purchase>
+      </PrivateRoute>
+      </Switch>
+      
+      </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }

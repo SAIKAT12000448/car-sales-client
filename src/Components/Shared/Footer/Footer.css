@@ -1,0 +1,29 @@
+.bg-color {
+  background-color: rgba(37, 44, 40, 0.753);
+}
+
+.icon a i {
+  text-decoration: none;
+  color: #249fd4;
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+.icon a i:hover {
+  color: #42b3e5;
+  transform: rotate(360deg);
+  transition: transform 1s;
+}
+
+.fas {
+  color: #42b3e5;
+}
+
+.footer-option p a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.footer-option p a:hover {
+  color: #42b3e5;
+}
