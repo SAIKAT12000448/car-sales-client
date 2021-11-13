@@ -30,6 +30,11 @@ const Navigation = () => {
         <NavLink className="" style={{textDecoration:"none",color:'Black'}} to="/dashboard"><h5>
               Dashboard</h5></NavLink>
         </li>}
+        {
+          user.email && <li className="nav-item me-lg-5">
+            <h5 className="text-success">{user.displayName}</h5>
+          </li>
+        }
         <li className="nav-item">
           {user.email?<button onClick={logOut} type="button" className="btn"><h5>Logout</h5></button>:
           <NavLink className="" style={{textDecoration:"none",color:'Black'}} to="/login"><h5>

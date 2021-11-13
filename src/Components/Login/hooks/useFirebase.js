@@ -7,7 +7,7 @@ const useFirebase=()=>{
     const[user,setUser]=useState({})
     const[isloading,setisLoading]=useState(true);
     const[error,setError]=useState('');
-
+  const[admin,setAdmin]=useState(false)
 
     
     
@@ -25,7 +25,7 @@ const useFirebase=()=>{
             console.log(email)
             setUser(newLogin)
             // SAVE USER
-            // saveUser(email,name,'POST')
+            saveUser(email,name,'POST')
 
             updateProfile(auth.currentUser, {
               displayName:name
@@ -45,6 +45,17 @@ const useFirebase=()=>{
           })
           .finally(()=>setisLoading(false)); 
     }
+
+
+
+
+    // 
+    useEffect(()=>{
+      fetch(`http://localhost:5000/users/${user.email}`)
+      .then(res=>res.json())
+      .then(data=>setAdmin(data.admin))
+
+    },[user.email])
 
 
     
@@ -91,8 +102,24 @@ const useFirebase=()=>{
     }
 
 
+    const saveUser=(email,displayName,method)=>{
+      const user={email,displayName};
+      fetch('http://localhost:5000/users',{
+        method:method,
+        headers:{
+          "content-type":"application/json"
+        },
+        body:JSON.stringify(user)
+      })
+      .then()
+     
+ }
+
+
+
+
     return {
-        user,registerUser,logOut,login,isloading,error
+        user,registerUser,logOut,login,isloading,error,admin
 
     }
 
