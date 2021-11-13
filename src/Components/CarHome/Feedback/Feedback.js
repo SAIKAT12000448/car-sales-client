@@ -5,7 +5,7 @@ const Feedback = () => {
     const[feedback,setfeedback]=useState([]);
     const{user}=useAuth()
     useEffect(()=>{
-        fetch("http://localhost:5000/review")
+        fetch("https://protected-atoll-93950.herokuapp.com/review")
         .then(res=>res.json())
         .then(data=>setfeedback(data))
     })

@@ -15,7 +15,7 @@ const Purchase = () => {
     const[bookInfo,setbookInfo]=useState(initialInfo)
   
     useEffect(()=>{
-        fetch(`http://localhost:5000/purchase/${perid}`)
+        fetch(`https://protected-atoll-93950.herokuapp.com/purchase/${perid}`)
         .then(res=>res.json())
         .then(data=>setPurchase(data))
     },[])
@@ -29,7 +29,7 @@ const handleFormSubmit=e=>{
     }
 
     //  send to the server
-     fetch('http://localhost:5000/placeorder',{
+     fetch('https://protected-atoll-93950.herokuapp.com/placeorder',{
         method:"POST",
         headers:{
           'content-type':"application/json"

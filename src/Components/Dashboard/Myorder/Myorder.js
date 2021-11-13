@@ -6,13 +6,13 @@ const Myorder = () => {
     const [control, setConrol] = useState(false);
     const{user}=useAuth()
     useEffect(()=>{
-        fetch(`http://localhost:5000/myorder?email=${user.email}`)
+        fetch(`https://protected-atoll-93950.herokuapp.com/myorder?email=${user.email}`)
         .then(res=>res.json())
         .then(data=>setMyorder(data))
     },[control])
 
     const handleDelete=id=>{
-        fetch(`http://localhost:5000/deletorder/${id}`,{
+        fetch(`https://protected-atoll-93950.herokuapp.com/deletorder/${id}`,{
             method: "DELETE",
             headers: { "content-type": "application/json" },
           })

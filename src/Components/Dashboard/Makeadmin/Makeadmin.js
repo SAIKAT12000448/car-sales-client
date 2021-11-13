@@ -14,7 +14,7 @@ const Makeadmin = () => {
         console.log(e.target.value)
         const user={email}
         console.log(user)
-        fetch('http://localhost:5000/users/admin',{
+        fetch('https://protected-atoll-93950.herokuapp.com/users/admin',{
             method:"PUT",
             headers:{
                 'content-type': "application/json"

@@ -6,7 +6,7 @@ const Manageproducts = () => {
     const[control,setControl]=useState(false)
     
     useEffect(()=>{
-        fetch('http://localhost:5000/explore')
+        fetch('https://protected-atoll-93950.herokuapp.com/explore')
         .then(res=>res.json())
         .then(data=>{
             
@@ -15,7 +15,7 @@ const Manageproducts = () => {
     },[control])
 
     const handleDelete=id=>{
-        fetch(`http://localhost:5000/explore/${id}`,{
+        fetch(`https://protected-atoll-93950.herokuapp.com/explore/${id}`,{
     method: "DELETE",
     headers: { "content-type": "application/json" },
   })

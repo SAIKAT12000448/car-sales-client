@@ -8,7 +8,7 @@ const Addproducts = () => {
     const onSubmit =data=>{
 
         // send to the server
-              axios.post("http://localhost:5000/addproduct",data)
+              axios.post("https://protected-atoll-93950.herokuapp.com/addproduct",data)
               .then(res=>{
                 console.log(res)
                    if(res.data.insertedId){

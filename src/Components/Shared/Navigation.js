@@ -22,10 +22,7 @@ const Navigation = () => {
         <NavLink className="" style={{textDecoration:"none",color:'Black'}} to="/explore"><h5>
               Explore</h5></NavLink>
         </li>
-        <li className="nav-item me-lg-5">
-        <NavLink className="" style={{textDecoration:"none",color:'Black'}} to="/addproducts"><h5>
-              Add Product</h5></NavLink>
-        </li>
+      
       { user.email && <li className="nav-item me-lg-5">
         <NavLink className="" style={{textDecoration:"none",color:'Black'}} to="/dashboard"><h5>
               Dashboard</h5></NavLink>

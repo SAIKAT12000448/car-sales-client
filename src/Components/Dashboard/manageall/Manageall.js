@@ -4,7 +4,7 @@ const Manageall = () => {
     const[manage,setmanage]=useState([])
     const [control,setControl]=useState(false)
     useEffect(()=>{
-        fetch('http://localhost:5000/manageorder')
+        fetch('https://protected-atoll-93950.herokuapp.com/manageorder')
         .then(res=>res.json())
         .then(data=>setmanage(data))
     },[control])
@@ -12,7 +12,7 @@ const Manageall = () => {
     const handlemanageDelete=(id)=>{
 
 console.log("click")
-fetch(`http://localhost:5000/deletorder/${id}`,{
+fetch(`https://protected-atoll-93950.herokuapp.com/deletorder/${id}`,{
     method: "DELETE",
     headers: { "content-type": "application/json" },
   })
